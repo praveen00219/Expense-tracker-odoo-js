@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-// const apiKey = "AIzaSyA9j_aLpVhvoRtFdNxNEp0AQMgwl4aWc00";
+const apiKey = "AIzaSyA9j_aLpVhvoRtFdNxNEp0AQMgwl4aWc00";
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const btn = document.querySelector(".btn");
