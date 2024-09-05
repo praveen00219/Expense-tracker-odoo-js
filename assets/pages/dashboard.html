@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/asset-allocation.png">
+
+    <title>Dashboard | Odoo</title>
+
+    <!-- Tailwind cdn link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <!-- google font link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+    <!-- custom styles file linked -->
+    <link rel="stylesheet" href="/assets/styles/dashboardStyle.css">
+    <link rel="stylesheet" href="/assets/styles/financialAdvisorAiStyles.css">
+
+    <!-- animate.style CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+</head>
+
+<body class="flex flex-col h-screen ">
+    <header id="dashboard-header"
+        class="flex justify-between items-center p-4 bg-[#027d83] text-white fixed w-full z-10">
+        <div class="flex items-center gap-10">
+            <button id="menu-btn" class="text-2xl">&#9776;</button>
+            <div>
+                <h1 style="font-size: calc(0.925rem + 1.5vw);" class="text-gray-500">
+                    <span class="text-[#724b68]">o</span>doo <span class="text-white">Finance Management</span>
+                </h1>
+                <ul class="flex gap-7 text-sm">
+                    <li class="cursor-pointer hover:underline transform hover:scale-105">
+                        <a href="#ExpenseForm">Expense Tracker</a>
+                    </li>
+                    <li class="cursor-pointer hover:underline transform hover:scale-105">
+                        <a href="#ExpenseList">My Expense</a>
+                    </li>
+                    <li class="cursor-pointer hover:underline transform hover:scale-105">
+                        <a href="#DataVisualization">Data Visualization</a>
+                    </li>
+                    <li class="cursor-pointer hover:underline transform hover:scale-105">
+                        <a href="#FinancialAdvisorAi">AI Financial Advisor</a>
+                    </li>
+                    <li class="cursor-pointer hover:underline transform hover:scale-105">
+                        <a href="#TaxesCalculator">Taxes Calculator</a>
+                    </li>
+                    <li class="cursor-pointer hover:underline transform hover:scale-105">
+                        <a href="#paymentIntegration">Payment Integration</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <button onclick="logout()" class="flex gap-2">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+                        <path fill="#724b68"
+                            d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5zm16 7l-4-4v3H9v2h8v3z" />
+                    </svg>
+                </span>
+                <span class="mr-4 font-semibold text-xl cursor-pointer transform hover:scale-105 hover:underline">
+                    Logout
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <div id="sidebar"
+        class="border border-r-gray-200 fixed top-0 left-0 w-64 bg-white text-[#027d83] h-full transform -translate-x-full transition-transform duration-300">
+        <div class="flex justify-between items-center p-4 bg-gray-900">
+            <span class="text-xl font-semibold">Menu</span>
+        </div>
+        <nav class="flex-1 p-4 mt-5 bg-white h-screen">
+            <ul class="">
+                <li class="flex mt-6">
+                    <a href="/assets/pages/myExpenses.html">
+                        <button onclick="loadPage('./Newfolder/index.html')"
+                            class="w-full text-left py-2 px-4 cursor-pointer transform hover:scale-105">
+                            General Purpose
+                        </button>
+                    </a>
+                    <button id="close-modal"
+                        class="ml-auto transform hover:scale-105 text-red-500 hover:text-red-700 font-bold text-sm hover:shadow-md py-1 px-2 rounded">
+                        X
+                    </button>
+                </li>
+                <li class="">
+                    <a href="/assets/pages/financialAdvisorAi.html">
+                        <button onclick="loadPage('./Gemini')"
+                            class="w-full text-left py-2 px-4 cursor-pointer transform hover:scale-105">
+                            AI Support (24*7)
+                        </button>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="/assets/pages/expenseStickyNotes/notes.html">
+                        <button onclick="loadPage('./Sticky_Notes/index.html')"
+                            class="w-full text-left py-2 px-4 cursor-pointer transform hover:scale-105">
+                            My Expenses Notes
+                        </button>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="/assets/pages/paymentGateway/payment.html">
+                        <button onclick="loadPage('./startUp/index.html')"
+                            class="w-full text-left py-2 px-4 cursor-pointer transform hover:scale-105">
+                            Payment Integration
+                        </button>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="/assets/pages/financialAdvisorAi.html">
+                        <button onclick="loadPage('./ExpertChat/index.html')"
+                            class="w-full text-left py-2 px-4 cursor-pointer transform hover:scale-105">
+                            Chat With Finance Expert
+                        </button>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <!-- Main Content -->
+    <div id="main-content" class="flex-1  flex flex-col ml-0 transition-all duration-300">
+        <main class="flex-1 mt-16 overflow-auto">
+            <!-- Expense Form -->
+            <div id="ExpenseForm" class="flex mt-16 w-10/12 mx-auto">
+                <div class="content w-[50vw]">
+                    <h1 style="font-size: calc(1.025rem + 1.7vw);" class=" heading italic">
+                        Every expense, one
+                        <span class="reportingdash">reporting</span>
+                    </h1>
+                    <p class="text-gray-500 w-3/4 mt-5" style="font-size: calc(0.525rem + 0.9vw);">
+                        <span class="text-gray-700 font-semibold">Stop submitting each individual expense.</span> Place
+                        all expenses
+                        on one expense report with a click. Submitting a single report is easier for everyone; from the
+                        employees submitting expenses, the managers approving expense reports, and the accountants
+                        posting payments.
+                    </p>
+                </div>
+                <div class="w-[50vw] mt-10 ">
+                    <input type="hidden" id="editIndex">
+                    <div class="bg-[#027d83] py-8 px-6 rounded-lg mb-6">
+                        <input type="text" id="description" placeholder="Description"
+                            class="block w-full mb-3 p-2 border rounded">
+                        <input type="number" id="amount" placeholder="Amount"
+                            class="block w-full mb-3 p-2 border rounded">
+                        <select id="category" class="block w-full mb-4 p-2 border rounded">
+                            <option disabled>categories</option>
+                            <option>All categories</option>
+                            <option>Accessories</option>
+                            <option>Entertainment</option>
+                            <option>Groceries</option>
+                            <option>Rent</option>
+                            <option>Utilities</option>
+                            <option>Other</option>
+                        </select>
+                        <button id="addExpense"
+                            class="bg-[#724b68] hover:bg-[#5c3953] mt-10 text-white px-4 py-2 rounded-lg w-full transform hover:font-semibold ">
+                            Add Expense
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expense List -->
+            <div id="ExpenseList" class="flex flex-col mt-20 w-10/12 mx-auto shadow-lg p-6 rounded-lg">
+                <div class=" flex flex-col justify-between items-center">
+                    <h1 style="font-size: calc(1.025rem + 1.8vw);" class="heading flex italic">
+                        <span class="readyUnderline">Ready,</span>
+                        <span class="setUnderline">set,</span>
+                        <span class="expenseUnderline">expense!</span>
+                    </h1>
+                    <p class="text-gray-500 w-2/4 mt-5 text-center" style="font-size: calc(0.525rem + 0.9vw);">
+                        <span class="text-gray-700 font-semibold">Expense categories are pre-configured!</span> When the
+                        Expenses app
+                        is installed, a set of pre-loaded expense categories are available so you can start creating
+                        expense records right away.
+                    </p>
+                </div>
+                <div class="mt-8 flex flex-col justify-between items-center">
+                    <table class="w-[100%]">
+                        <thead>
+                            <tr class="text-center">
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Expense For</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expenseList">
+                            <!-- Dynamically populated expenses will go here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Data Visualization -->
+            <div id="DataVisualization" class="flex mt-20 w-10/12 mx-auto">
+                <div class="w-[50vw] flex flex-col">
+                    <div class="bg-white p-4 h-[40vh] rounded-lg  flex justify-start">
+                        <canvas id="expenseChart"></canvas>
+                    </div>
+                </div>
+                <div class="content w-[50vw] flex flex-col items-start">
+                    <h1 style="font-size: calc(1.025rem + 1.8vw);" class="heading italic">
+                        Spending
+                        <span class="reporting">Breakdown Reports</span>
+                    </h1>
+                    <p class="text-gray-500 w-3/4 mt-5" style="font-size: calc(0.525rem + 0.9vw);">
+                        <span class="text-gray-700 font-semibold">See the data you want!</span> Visualize expenses with
+                        customized
+                        reports to show exactly the information you need. See expenses by employee, category,
+                        dates, and more. Create reports with multiple filters and/or groupings, and favorite them for
+                        easy access.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Delete All Button -->
+            <button id="deleteAll"
+                class="fixed bottom-4 right-4 bg-red-500 hover:bg-red-600 hover:font-semibold shadow-lg text-white px-4 py-2 rounded-full  transform transition duration-300 hover:scale-105 hover:shadow-lg focus:outline-none ">
+                Clear Expenses
+            </button>
+
+            <!-- popup-container for message when expense added, updated, deleted and all deleted -->
+            <div id="popup-container" class=" flex gap-2 fixed bottom-10 right-4 px-4 py-2 rounded-full bg-gray-800 ">
+                <img src="/assets/img/checkmark.png" class="w-7 h-7" alt="checkmark">
+                <span id="popupMessage" class="text-lg text-green-300 "></span>
+            </div>
+
+            <!-- AI Financial Advisor -->
+            <div id="FinancialAdvisorAi" class=" flex flex-col h-[90vh] mt-20">
+                <h1 style="font-size: calc(1.025rem + 1.8vw);" class="heading italic text-center mb-5">
+                    "Virtual Financial Coach: AI-Driven <span class="readyUnderline">Investment</span> and <span
+                        class="expenseUnderlineGreen">Savings Strategies"</span>
+                </h1>
+                <section
+                    class="w-10/12 bg-[#2e222b] h-[100vh] mx-auto rounded-lg flex flex-col justify-center items-center">
+                    <main class="p-4">
+                        <div>
+                            <h1 style="font-size: calc(1.025rem + 1.2vw);"
+                                class="heading text-[#007d83] text-center font-bold">
+                                AI Financial Advisor
+                            </h1>
+                            <p class="text-md text-[#aeb8b92e] text-center ">"Personalized Wealth Management"</p>
+                        </div>
+                        <div class="chat-container flex flex-col space-y-2">
+                            <!-- Dynamic chat -->
+                        </div>
+                        <div class="loader-container flex justify-center items-center ">
+                            <div
+                                class="loader py-4 fixed inset-0 bg-gray-900 bg-opacity-75 z-50 transform transition-transform">
+                            </div>
+                        </div>
+
+                        <div class="input-container my-4">
+                            <input type="text"
+                                class="user-input flex-1 border rounded-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                                placeholder="Ask something, Anything" />
+                            <button class="btn p-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.8em" height="2.2em"
+                                    viewBox="0 0 512 512">
+                                    <path fill="#007d83" d="m0 49.376l512 197.288L3.568 462.624l102.427-206.087z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </main>
+                </section>
+            </div>
+
+            <!-- Taxes Calculator -->
+            <div id="TaxesCalculator" class="bg-white rounded mt-24 w-10/12 mx-auto">
+                <h1 style="font-size: calc(1.025rem + 1.8vw);" class="heading italic text-center m6-8">
+                    <span class="setUnderline">"TaxMate:</span> AI-Powered Tax Calculation and Optimization"
+                </h1>
+                <div class="flex justify-between items-center">
+                    <div class="w-[50vh]">
+                        <p class="text-gray-500 my-5" style="font-size: calc(0.525rem + 0.9vw);">
+                            <span class="text-gray-600 font-semibold">Nirmala Sitharaman, the Finance Minister of India
+                                presented the Union Budget 2024-25</span> and
+                            introduced
+                            new income tax slabs and rates for the new tax regime. The new tax regime was introduced in
+                            Budget 2020 with 6 slabs. <span class="text-gray-600 font-semibold">Let’s check the updated
+                                income tax
+                                slab.</span>
+                        </p>
+                        <div class="bg-white rounded-lg py-4 shadow-lg">
+                            <table class="w-full text-center">
+                                <thead>
+                                    <tr class="bg-gray-600 text-white">
+                                        <th class="p-2">Income Slabs</th>
+                                        <th class="p-2">Tax Rates FY 2024-25</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white text-black">
+                                    <tr>
+                                        <td class="p-2">Income above ₹10Lakh</td>
+                                        <td class="p-2">20% on income</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2">Rs 7Lakh to Rs 10Lakh</td>
+                                        <td class="p-2">15% on income</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2">Rs 5Lakh to Rs 7Lakh</td>
+                                        <td class="p-2">10% on income</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2">Rs 3Lakh to Rs 5Lakh</td>
+                                        <td class="p-2">5% on income</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2">Up to Rs 3Lakh</td>
+                                        <td class="p-2">Nill</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="w-[50vh] ">
+                        <div
+                            class="bg-[#027d83] flex flex-col justify-center items-center py-8 px-6 rounded-lg shadow-md">
+                            <input type="number" id="income" placeholder="Enter your total income"
+                                class="w-full p-2 rounded mb-5">
+                            <button onclick="calculateTax()"
+                                class="w-full bg-[#724b68] hover:bg-[#5c3953] text-white p-2 rounded-lg">Calculate
+                                Tax</button>
+                            <div class="flex w-full justify-between items-center mt-6">
+                                <div class="mt-4 text-white">
+                                    <p>Total Income: ₹<span id="totalIncome">0</span></p>
+                                    <p>Tax Rate: <span id="taxRate">0</span>%</p>
+                                </div>
+
+                                <div class="mt-4 text-white">
+                                    <p>Taxable Amount: ₹<span id="taxToPay">0</span></p>
+                                    <p>Net Earnings: ₹<span id="amountLeft">0</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unleash growth potential / Payment Integration-->
+            <div id="paymentIntegration" class="container mt-20 mb-10 w-10/12 mx-auto bg-gray-100 rounded-lg p-8">
+                <div class="flex relative justify-center items-center ">
+                    <div class="footercreenShotContainer"></div>
+                    <div class="flex flex-col justify-center items-center ">
+                        <h1 style="font-size: calc(1.525rem + 3.5vw);" class="heading text-center "><span
+                                class="bottomUnleash">Unleash</span>
+                            <br> your <span class="text-[#007d83]">growth potential</span>
+                        </h1>
+                        <div class="flex flex-col relative ">
+                            <img src="/assets/img/screenShot/payment.jpg" class="rotated-img  h-[50vh] opacity-50"
+                                alt="">
+                            <div
+                                class="tryFreer flex flex-col shadow-full items-center absolute top-1/4 -right-44 bg-gray-200 p-4 rounded-full w-[50vw] h-1/2">
+                                <a href="/assets/pages/paymentGateway/payment.html">
+                                    <button id="startFree"
+                                        class="rotated-img transform hover:scale-105  text-white text-lg mt-10 px-6 py-3 bg-[#724b68] hover:bg-[#754368] rounded-md ">Start
+                                        Now
+                                        - It's
+                                        free</button>
+                                </a>
+                                <button class="mt-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em"
+                                        viewBox="0 0 24 24">
+                                        <path fill="#007d83"
+                                            d="M10.586 3L4 9.586a2 2 0 0 0-.434 2.18l.068.145A2 2 0 0 0 5.414 13H8v7a2 2 0 0 0 2 2h4l.15-.005A2 2 0 0 0 16 20l-.001-7h2.587A2 2 0 0 0 20 9.586L13.414 3a2 2 0 0 0-2.828 0" />
+                                    </svg>
+                                </button>
+                                <p class="text-center text-xs font-semibold mt-3">No credit card required <br>Instant
+                                    access
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- footer -->
+    <footer class="bg-gray-900">
+        <div>
+            <p class="text-center text-white py-3"><span class="text-gray-400">Website made with</span> odoo || @praveen
+            </p>
+        </div>
+    </footer>
+
+    <!-- Google AI import Link -->
+    <script type="importmap">
+    {
+        "imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+    }
+    </script>
+
+    <!-- Chart.js link -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- dashboardScripts -->
+    <script src="/assets/scripts/dashboardScripts.js"></script>
+    <!-- financialAdvisorAiScript -->
+    <script type="module" src="/assets/scripts/financialAdvisorAiScript.js"></script>
+</body>
+
+</html>

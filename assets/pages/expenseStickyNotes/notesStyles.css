@@ -1,0 +1,48 @@
+.note {
+  width: 200px;
+  height: 300px;
+}
+
+/* Note animations */
+@keyframes addNoteAnimation {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes removeNoteAnimation {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.note.animate-add {
+  animation: addNoteAnimation 0.3s ease-out;
+}
+
+.note.animate-remove {
+  animation: removeNoteAnimation 0.3s ease-out;
+}
+
+/* Bold button styles */
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/asset-allocation.png">
+
+    <title>Financial Advisor AI | Odoo</title>
+
+    <!-- Tailwind CDN Link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- google font link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/styles/financialAdvisorAiStyles.css">
+
+</head>
+
+<body onload="checkLogin();" class="bg-[#2e222b] flex flex-col h-screen">
+
+    <section class="w-10/12 h-[100vh] mx-auto flex flex-col justify-center items-center">
+        <main class="p-4">
+            <div>
+                <h1 style="font-size: calc(0.925rem + 1.5vw);" class="heading text-[#007d83] text-center font-bold">
+                    AI Financial Advisor
+                </h1>
+                <p class="text-md text-[#aeb8b92e] text-center ">"Opportunities come infrequently."</p>
+            </div>
+            <div class="chat-container flex flex-col space-y-2">
+                <!-- Dynamic chat -->
+            </div>
+            <div class="loader-container flex justify-center items-center ">
+                <div class="loader py-4 fixed inset-0 bg-gray-900 bg-opacity-75 z-50 transform transition-transform">
+                </div>
+            </div>
+            </div>
+        </main>
+        <div class="input-container">
+            <input type="text"
+                class="user-input flex-1 border rounded-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                placeholder="Ask something, Anything" />
+            <button class="btn p-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.8em" height="2.2em" viewBox="0 0 512 512">
+                    <path fill="#007d83" d="m0 49.376l512 197.288L3.568 462.624l102.427-206.087z" />
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <script type="importmap">
+    {
+        "imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+    }
+    </script>
+    <script type="module" src="/assets/scripts/financialAdvisorAiScript.js"></script>
+</body>
+
+</html>

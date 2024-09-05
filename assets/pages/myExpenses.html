@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/asset-allocation.png">
+
+    <title>My Expense | Odoo</title>
+
+    <!-- google font link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind cdn link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- custom styles file linked -->
+    <link rel="stylesheet" href="/assets/styles/dashboardStyle.css">
+</head>
+
+<body class="" onload="checkLogin();">
+    <section class="11/12 mx-auto ">
+        <!-- Submit on the go-->
+        <div class=" mt-20 flex justify-between gap-24 items-center w-10/12 mx-auto">
+            <img src="/assets/img/screenShot/dashboardHome.jpg" alt="dashboardHome" class="w-[40vw]">
+            <div class="content w-[50vw]">
+                <h1 style="font-size: calc(1.025rem + 1.8vw);" class="heading">Submit <br><span class="onTheGo">on
+                        the go</span>
+                </h1>
+                <p class="text-gray-500 w-2/4 mt-5" style="font-size: calc(0.525rem + 0.9vw);">
+                    <span class="text-gray-800">Submit expenses right from your phone!</span> Whether emailing an
+                    expense or uploading a receipt using Odoo's mobile app, never
+                    forget to log an expense by submitting receipts on the go, as you collect them!
+                </p>
+            </div>
+        </div>
+
+        <!-- Data Visualization -->
+        <div id="DataVisualization" class="flex w-10/12 mx-auto mt-20">
+            <div class="content flex flex-col items-start">
+                <h1 style="font-size: calc(1.025rem + 1.8vw);" class="heading italic">
+                    Robust
+                    <span class="reporting">reporting</span>
+                </h1>
+                <p class="text-gray-500 w-3/4 mt-5" style="font-size: calc(0.525rem + 0.9vw);">
+                    <span class="text-gray-700 font-semibold">See the data you want!</span> Visualize expenses with
+                    customized
+                    reports to show exactly the information you need. See expenses by employee, category,
+                    dates, and more. Create reports with multiple filters and/or groupings, and favorite them for
+                    easy access.
+                </p>
+            </div>
+        </div>
+
+        <!-- Expense List -->
+        <div id="ExpenseList" class="flex flex-col mt-10 w-10/12 mx-auto  p-6 rounded-lg">
+            <div class=" flex flex-col justify-between items-center">
+                <h1 style="font-size: calc(1.025rem + 1.8vw);" class="heading flex gap-2 italic">
+                    <span class="readyUnderline">Ready, </span>
+                    <span class="setUnderline">set, </span>
+                    <span class="expenseUnderline">expense! </span>
+                </h1>
+                <p class="text-gray-500 w-2/4 mt-5 text-center" style="font-size: calc(0.525rem + 0.9vw);">
+                    <span class="text-gray-700 font-semibold">Expense categories are pre-configured!</span> When the
+                    Expenses app
+                    is installed, a set of pre-loaded expense categories are available so you can start creating
+                    expense records right away.
+                </p>
+            </div>
+        </div>
+
+        <!-- Data Visualization -->
+        <div id="DataVisualization" class="flex w-10/12 mx-auto my-20">
+            <div class="content flex flex-col items-start">
+                <h1 style="font-size: calc(1.025rem + 1.8vw);" class="heading italic">
+                    Less typing, <span class="reporting">Harness the power of OCR.</span>
+                </h1>
+                <p class="text-gray-500 w-3/4 mt-5" style="font-size: calc(0.525rem + 0.9vw);">
+                    <span class="text-gray-700 font-semibold">See the data you want!</span> No more wasted time typing
+                    in each receipt detail. Odoo scans each receipt and creates an expense record with the total
+                    cost and date, so you don't have to.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        function checkLogin() {
+            const loggedIn = sessionStorage.getItem("loggedIn");
+            if (!loggedIn) {
+                window.location.href = "/index.html";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

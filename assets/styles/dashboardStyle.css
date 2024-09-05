@@ -1,0 +1,103 @@
+/* popup-container for message when expense added and updated  */
+#popup-container {
+  display: none;
+}
+
+/* popup-container for message when expense deleted  */
+#popup-deleteContainer {
+  display: none;
+}
+
+.heading {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.reporting {
+  background-image: url(/assets/img/blue_highlight_bold_06.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  white-space: nowrap;
+}
+.tryFree {
+  background-image: url(/assets/img/blue_highlight_bold_06.svg);
+  background-position: center;
+  /* background-repeat: no-repeat; */
+  background-size: contain;
+  white-space: nowrap;
+}
+
+.reportingdash {
+  background-image: url(/assets/img/blue_highlight_02.svg);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  white-space: nowrap;
+}
+
+.expenseUnderlineGreen {
+  background-image: url(/assets/img/green_highlight_03.svg);
+  background-position: center bottom;
+  /* background-repeat: no-repeat; */
+  background-size: contain;
+  white-space: nowrap;
+}
+
+.readyUnderline {
+  background-image: url(/assets/img/red_highlight_02.svg);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  white-space: nowrap;
+}
+
+.setUnderline {
+  background-image: url(/assets/img/yellow_highlight_01.svg);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  white-space: nowrap;
+}
+
+.expenseUnderline {
+  background-image: url(/assets/img/green_highlight_03.svg);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  white-space: nowrap;
+}
+
+.rotated-img-container {
+  width: 300px;
+  margin: 50px auto;
+  perspective: 1000px; /* Creates the 3D effect */
+}
+
+.rotated-img {
+  width: 100%;
+  transform: rotateX(25deg) rotateY(10deg) rotateZ(-10deg);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Optional: Adds a shadow */
+  border-radius: 15px; /* Optional: Adds rounded corners */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

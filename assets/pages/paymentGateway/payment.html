@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/asset-allocation.png">
+
+    <title>Payment Gateway | odoo</title>
+
+    <!-- google font link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+    <!-- tailwind CDN link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .heading {
+            font-family: "Caveat", cursive;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .border-dark {
+            border-color: #4A5568;
+            background-color: rgba(128, 128, 128, 0.15);
+            /* Adjust the dark color as needed */
+            border-width: 3px;
+        }
+    </style>
+</head>
+
+<body onload="checkLogin();" class="bg-gray-50 font-sans leading-normal tracking-normal">
+
+    <div class="container mx-auto p-10">
+        <div class="w-full max-w-lg mx-auto bg-white p-8 shadow-lg rounded-lg">
+            <h2 class=" text-4xl text-[#027d83] font-bold mb-4">Payment</h2>
+
+
+            <!-- Payment Method Selection -->
+            <div class="mb-6">
+                <h3 class="text-xl text-[#724b68] font-semibold mb-2">Upgrade to a paid plan</h3>
+
+                <div class="flex space-x-4">
+                    <div id="weeklyPlan" class="plan  shadow-md hover:bg-gray-100  cursor-pointer rounded-lg px-4 py-2">
+                        <span class="text-lg text-yellow-500 font-semibold">INR</span>
+                        <p>
+                            <span class="font-bold text-2xl text-center text-[#724b68] mt-2">239.00</span>
+                            <span class="text-sm text-[#027d83] font-semibold text-center mt-2">/week</span>
+                        </p>
+                    </div>
+                    <div id="monthlyPlan" class="plan shadow-md hover:bg-gray-100  cursor-pointer rounded-lg px-4 py-2">
+                        <span class="text-lg text-yellow-500 font-semibold">INR</span>
+                        <p>
+                            <span class="font-bold text-2xl text-center text-[#724b68] mt-2">719.00</span>
+                            <span class="text-sm text-[#027d83] text-center mt-2">/month</span>
+                        </p>
+                    </div>
+                    <div id="yearlyPlan" class="plan shadow-md hover:bg-gray-100  cursor-pointer rounded-lg px-4 py-2">
+                        <span class="text-lg text-yellow-500 font-semibold">INR</span>
+                        <p>
+                            <span class="font-bold text-2xl text-center text-[#724b68] mt-2">8970.00</span>
+                            <span class="text-sm text-[#027d83] text-center mt-2">/year</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Method Selection -->
+            <div class="mb-6">
+                <h3 class="text-xl text-[#724b68] font-semibold mb-2">Choose Payment Method</h3>
+                <div class="flex space-x-4">
+                    <button id="visa-btn" class="border-dark rounded-lg px-4 py-2">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa"
+                            class="h-8 mx-auto">
+                        <span class="block text-sm text-center mt-2">Pay With Visa Card</span>
+                    </button>
+                    <button class="cursor-no-drop shadow-lg rounded-lg px-4 py-2 opacity-50">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal"
+                            class="h-8 mx-auto">
+                        <span class="block text-sm text-center mt-2">Pay With PayPal</span>
+                    </button>
+                    <button class="cursor-no-drop shadow-lg rounded-lg px-4 py-2 opacity-50">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon"
+                            class="h-8 mx-auto">
+                        <span class="block text-sm text-center mt-2">Pay With Amazon Payment</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Credit Card Information -->
+            <div id="credit-card-info">
+                <h3 class="text-xl text-[#027d83] font-semibold mb-2">Credit Card Information</h3>
+                <form id="payment-form">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-semibold">Card Holder Name</label>
+                        <input type="text" id="card-holder-name" placeholder="Name"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-purple-500">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-semibold">Card No</label>
+                        <input type="text" id="card-no" placeholder="4444 2222 6666 ****"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-purple-500">
+                    </div>
+                    <div class="flex space-x-4 mb-4">
+                        <div class="w-1/2">
+                            <label class="block text-gray-700 font-semibold">Expiry Date</label>
+                            <input type="text" id="expiry-date" placeholder="month / year"
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-purple-500">
+                        </div>
+                        <div class="w-1/2">
+                            <label class="block text-gray-700 font-semibold">CVV</label>
+                            <input type="text" id="cvv" placeholder="***"
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-purple-500">
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <input type="checkbox" id="save-details" class="mr-2">
+                        <label for="save-details" class="text-blue-700 font-semibold">Save My Details For Future
+                            Purchases</label>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-[#724b68] hover:bg-[#754368] hover:font-semibold text-white py-2 rounded-lg">Confirm
+                        Payment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="paymentScript.js"></script>
+</body>
+
+</html>

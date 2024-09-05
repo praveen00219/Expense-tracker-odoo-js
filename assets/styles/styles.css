@@ -1,0 +1,63 @@
+.heading {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.underlineheading {
+  background-image: url(/assets/img/blue_highlight_05.svg);
+  background-position: left bottom;
+  background-repeat: repeat-x;
+  background-size: auto;
+  white-space: nowrap;
+}
+
+.headingcross {
+  background-image: url(/assets/img/red_highlight_04.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  white-space: nowrap;
+}
+
+.homescreenShotContainer {
+  width: 120px;
+  height: 120px;
+  margin-bottom: -2rem;
+  margin-left: 2rem;
+  background-image: url(/assets/img/corner_1.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.onTheGo {
+  background-image: url(/assets/img/green_highlight_scribble_05.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  white-space: nowrap;
+}
+
+.reporting {
+  background-image: url(/assets/img/blue_highlight_bold_06.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  white-space: nowrap;
+}
+
+.footercreenShotContainer {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: -14%;
+  left: 30%;
+  margin-bottom: -2rem;
+  margin-left: 2rem;
+  background-image: url(/assets/img/corner_1.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}

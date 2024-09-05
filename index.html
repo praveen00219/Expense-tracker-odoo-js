@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/asset-allocation.png">
+
+    <title>odoo Expense</title>
+
+    <!-- Tailwind CDN Link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+    <!--Custom styles link-->
+    <link rel="stylesheet" href="/assets/styles/styles.css">
+</head>
+
+<body class="cursor-pointer">
+    <!-- Navbar -->
+    <nav class="px-6 py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="font-bold">
+                <h1 style="font-size: calc(0.925rem + 1.5vw);" class="text-gray-500">
+                    <span class="text-[#724b68]">o</span>doo
+                </h1>
+            </a>
+            <div>
+                <ul style="font-size: calc(0.525rem + 0.7vw);" class="flex gap-6 font-semibold">
+                    <li>Apps</li>
+                    <li>Community</li>
+                    <li>Pricing</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div style="font-size: calc(0.525rem + 0.7vw);" class="font-semibold">
+                <button id="auth-toggle"
+                    class="transform hover:scale-105 px-4 py-2 rounded-md hover:bg-gray-100 mr-2">Sign In</button>
+                <a href="" id="signInNav">
+                    <button
+                        class="transform hover:scale-105 text-white px-4 py-2 bg-[#724b68] hover:bg-[#754368] rounded-md">
+                        Try it free
+                    </button></a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="home" id="homeContainer">
+        <div class="container mx-auto p-4 pt-6 ">
+            <!-- home -->
+            <div class="flex flex-col items-center">
+                <h1 style="font-size: calc(1.725rem + 4.5vw);" class="text-center heading italic"><span
+                        class="headingcross">Stop</span>
+                    chasing paper
+                    <span class="underlineheading">receipts</span>
+                </h1>
+                <p class="font-semibold text-center text-gray-500 w-[50vw] mt-10"
+                    style="font-size: calc(0.525rem + 1.2vw);">
+                    <span class="text-gray-800">Odoo Expenses</span> keeps everything organized so you can say goodbye
+                    to that envelope
+                    of receipts!
+                </p>
+                <div class="mt-10 space-x-4 text-md">
+                    <button id="auth-toggle-start"
+                        class="transform hover:scale-105 text-white px-6 py-3 bg-[#724b68] hover:bg-[#754368] rounded-md ">Start
+                        Now - It's
+                        free</button>
+                    <button
+                        class="transform hover:scale-105 px-6 py-3 bg-gray-100 rounded-md text-[#724b68] font-semibold hover:bg-gray-200">Schedule
+                        a
+                        demo</button>
+                </div>
+                <p class="mt-2 font-semibold text-sm">Free, forever, with unlimited users. <span
+                        class="text-[#027d83] hover:text-[#016469]">See why</span></p>
+            </div>
+
+            <!-- Modal for Authentication (Sign-In and Sign-Up Form)-->
+            <div id="auth-modal"
+                class="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center z-50 hidden transform transition-transform">
+                <div class="bg-white rounded-lg p-8 shadow-lg w-96">
+                    <button id="close-modal"
+                        class="ml-[98%] transform hover:scale-105 text-red-500 hover:text-red-700 font-bold text-xl hover:shadow-lg border py-1 px-2 rounded">
+                        X
+                    </button>
+
+                    <!-- Sign In Form -->
+                    <div id="signInContainer">
+                        <h3 id="auth-title" style="font-size: calc(0.925rem + 1.5vw);"
+                            class="mb-4 text-center text-gray-500 font-bold">
+                            <span class="text-[#724b68]">o</span>doo
+                        </h3>
+                        <form id="signInForm">
+                            <input type="email" id="signInEmail" placeholder="Email"
+                                class="w-full p-2 mb-4 border rounded" required aria-label="signInEmail">
+                            <input type="password" id="signInPassword" placeholder="Password"
+                                class="w-full p-2 mb-4 border rounded" required aria-label="signInPassword">
+                            <button type="submit" id="signInBtn"
+                                class="w-full bg-[#027d83] hover:bg-[#016469] text-white py-2 px-4 rounded transition-all duration-300">
+                                Sign In
+                            </button>
+                        </form>
+                        <div class="mt-4 flex gap-2 justify-center">
+                            <p id="toggle-auth-para">Don't have an account?</p>
+                            <button id="toggle-auth"
+                                class="text-md font-semibold underline text-[#027d83] hover:text-[#016469]">
+                                Sign Up
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Sign Up Form -->
+                    <div id="signUpContainer" class="hidden">
+                        <h3 id="auth-title" style="font-size: calc(0.925rem + 1.5vw);"
+                            class="mb-4 text-center text-gray-500 font-bold">
+                            <span class="text-[#724b68]">o</span>doo
+                        </h3>
+                        <form id="signUpForm">
+                            <input type="text" id="username" placeholder="Username"
+                                class="w-full p-2 mb-4 border rounded" required aria-label="Username">
+                            <input type="email" id="email" placeholder="Email" class="w-full p-2 mb-4 border rounded"
+                                required aria-label="Email">
+                            <input type="password" id="password" placeholder="Password"
+                                class="w-full p-2 mb-4 border rounded" required aria-label="Password">
+                            <input type="password" id="confirm-password" placeholder="Confirm Password"
+                                class="w-full p-2 mb-4 border rounded" required aria-label="Confirm Password">
+                            <button type="submit" id="submitBtn"
+                                class="w-full bg-[#027d83] hover:bg-[#016469] text-white py-2 px-4 rounded transition-all duration-300">
+                                Sign Up
+                            </button>
+                        </form>
+                        <div class="mt-4 flex gap-2 justify-center">
+                            <p id="toggle-auth-para">Already have an account?</p>
+                            <button id="signInNav"
+                                class="text-md font-semibold underline text-[#027d83] hover:text-[#016469]">
+                                Sign In
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Al chat Bot Screenshot -->
+            <div class="container mt-20">
+                <div class="homescreenShotContainer"></div>
+                <div class="flex justify-center">
+                    <div class="">
+                        <img src="/assets/img/screenShot/dashboardHomeAi.jpg" class="img-thumbnail w-[80vw]"
+                            loading="eager" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit on the go-->
+            <div class="flex justify-between items-center mt-20 w-10/12 mx-auto">
+                <div class="w-[50vw]">
+                    <!-- screenShot of the home page -->
+                    <img src="/assets/img/screenShot/dashboardHome.jpg" class="" alt="dashboardHome">
+                </div>
+                <div class="content w-[50vw]">
+                    <div class="flex flex-col justify-center items-center">
+                        <h1 style="font-size: calc(1.525rem + 3vw);" class="heading">Submit <br><span class="onTheGo">on
+                                the go</span>
+                        </h1>
+                        <p class="text-gray-500 w-3/4 mt-5" style="font-size: calc(0.525rem + 0.9vw);">
+                            <span class="text-gray-800">Submit expenses right from your phone!</span> Whether emailing
+                            an
+                            expense or uploading a receipt using Odoo's mobile app, never
+                            forget to log an expense by submitting receipts on the go, as you collect them!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!--  Four ways to create records -->
+            <div class="  mt-20 flex flex-col justify-between items-center">
+                <h1 style="font-size: calc(1.525rem + 3vw);" class="heading">
+                    Four ways to create records
+                </h1>
+                <p class="text-gray-500 w-2/4 mt-5" style="font-size: calc(0.525rem + 0.9vw);">
+                    <span class="text-gray-800">Email, scan, drag and drop, or manual.</span> Add expenses by sending an
+                    email using expense codes, scan in a receipt, drag and drop a receipt into the Expenses app
+                    dashboard, or manually type in an expense - from your phone or computer!
+                </p>
+
+                <div class="flex gap-16 mt-5 bg-gray-100 px-8 py-5 rounded-full">
+                    <div class="flex flex-col items-center">
+                        <img src="/assets/img/mail.svg" class="w-[70px] h-[70px]" alt="Email">
+                        <p>Email</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="/assets/img/red_scan.svg" class="w-[70px] h-[70px]" alt="Scan">
+                        <p>Scan</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="/assets/img/yellow_drag-drop.svg" class="w-[70px] h-[70px]" alt="Drag & drop">
+                        <p>Drag & drop</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="/assets/img/blue_file-invoice.svg" class="w-[70px] h-[70px]" alt="Type in">
+                        <p>Type in</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Robust reporting-->
+            <div class="flex justify-between items-center mt-20 w-10/12 mx-auto">
+                <div class="content w-[50vw]">
+                    <h1 style="font-size: calc(1.525rem + 3vw);" class="heading">
+                        Robust
+                        <span class="reporting">reporting</span>
+                    </h1>
+                    <p class="text-gray-500 w-2/4 mt-5" style="font-size: calc(0.525rem + 0.9vw);">
+                        <span class="text-gray-800">See the data you want!</span> Visualize expenses with customized
+                        reports to show exactly the information you need. See expenses by employee, category,
+                        dates, and more. Create reports with multiple filters and/or groupings, and favorite them for
+                        easy access.
+                    </p>
+                </div>
+                <!-- data visulaization chart -->
+                <div class="w-2/4">
+                    <div class="flex justify-end">
+                        <img src="/assets/img/bar-chart.svg" class="w-[70px] h-[70px]" alt="bar-chart">
+                        <img src="/assets/img/yellow_dashboard.svg" class="w-[70px] h-[70px]" alt="yellow_dashboard">
+                        <img src="/assets/img/red_pie.svg" class="w-[70px] h-[70px]" alt="red_pie chart">
+                    </div>
+                    <img src="/assets/img/screenShot/dashboardHomeChart.jpg" class="" alt="robust_reporting">
+                    <!-- <img src="/assets/img/robust_reporting.webp" class="" alt="robust_reporting"> -->
+                </div>
+            </div>
+
+            <div class="mt-6">
+                <hr>
+            </div>
+
+            <!-- Unleash growth potential-->
+            <div class="container mt-20 w-10/12 mx-auto">
+                <div class="flex relative justify-center items-center ">
+                    <div class="footercreenShotContainer"></div>
+                    <div class="flex flex-col justify-center items-center ">
+                        <h1 style="font-size: calc(1.525rem + 3.5vw);" class="heading text-center "><span
+                                class="bottomUnleash">Unleash</span>
+                            <br> your <span class="text-[#007d83]">growth potential</span>
+                        </h1>
+                        <!-- <a href="#homeContainer"> -->
+                        <button id="startFree"
+                            class="transform hover:scale-105 text-white text-lg mt-10 px-6 py-3 bg-[#724b68] hover:bg-[#754368] rounded-md ">Start
+                            Now
+                            - It's
+                            free</button>
+                        <!-- </a> -->
+                        <button class="mt-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+                                <path fill="#007d83"
+                                    d="M10.586 3L4 9.586a2 2 0 0 0-.434 2.18l.068.145A2 2 0 0 0 5.414 13H8v7a2 2 0 0 0 2 2h4l.15-.005A2 2 0 0 0 16 20l-.001-7h2.587A2 2 0 0 0 20 9.586L13.414 3a2 2 0 0 0-2.828 0" />
+                            </svg>
+                        </button>
+                        <p class="text-center text-xs font-semibold mt-3">No credit card required <br>Instant access</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20">
+                <hr>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="bg-gray-900">
+        <div>
+            <p class="text-center text-white py-3"><span class="text-gray-400">Website made with</span> odoo || @praveen
+            </p>
+        </div>
+    </footer>
+
+    <script src="/assets/scripts/scripts.js"></script>
+</body>
+
+</html>
