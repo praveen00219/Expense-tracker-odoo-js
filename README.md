@@ -42,3 +42,18 @@ You can view the live version of the project at:
 - **Chart Visualization**: Chart.js
 - **AI Integration**: Gemini
 - **Backend (optional)**: None (Using local storage for data management)
+- **Database**: Local Storage (for simplicity and ease of use)
+
+## Screenshots
+
+### Homepage
+
+![Homepage Screenshot](/assets/img/screenShot/homepage.jpg)
+
+### Expense Tracker View
+
+![Expense Tracker Screenshot](/assets/img/screenShot/dashboardHome.jpg)
+
+### Data Visualization
+
+![Data Visualization Screenshot](/assets/img/screenShot/dashboardHomeChart.jpg)
