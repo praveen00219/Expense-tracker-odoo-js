@@ -61,3 +61,47 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
+
+.card-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgb(0, 0, 0, 0.4);
+}
+
+.card-img:hover img {
+  filter: grayscale(0);
+  border-radius: 10px;
+}
+
+.card-img img {
+  filter: grayscale(0.65);
+  transition: all 0.3s ease;
+  cursor: zoom-in;
+}
+
+.Ai-screenshot img {
+  filter: grayscale(0.65);
+  transition: all 0.3s ease;
+  cursor: zoom-in;
+}
+
+.card-img {
+  border-radius: 10px;
+}
+
+.rotated-img-container {
+  width: 300px;
+  margin: 50px auto;
+  perspective: 1000px; /* Creates the 3D effect */
+}
+
+.rotated-img {
+  width: 100%;
+  transform: rotateX(25deg) rotateY(10deg) rotateZ(-10deg);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Optional: Adds a shadow */
+  border-radius: 15px; /* Optional: Adds rounded corners */
+}
+
+#popup-container {
+  display: none;
+  box-shadow: 5px 10px 20px rgba(250, 133, 133, 0.4);
+}

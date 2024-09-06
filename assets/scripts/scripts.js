@@ -9,6 +9,10 @@ const signInNav = document.getElementById("signInNav");
 const startFree = document.getElementById("startFree");
 const authToggleStart = document.getElementById("auth-toggle-start");
 
+// popup message container
+const popupContainer = document.getElementById("popup-container");
+const popupMessage = document.getElementById("popupMessage");
+
 const authTitle = document.getElementById("auth-title");
 
 authToggle.addEventListener("click", () => {
@@ -105,3 +109,20 @@ document.getElementById("signUpForm").addEventListener("submit", (event) => {
   signUpContainer.classList.add("hidden");
   authTitle.textContent = "Sign In";
 });
+
+// payment integration event
+document
+  .getElementById("paymentIntegration")
+  .addEventListener("click", (event) => {
+    event.preventDefault();
+
+    // Show the message for updated existing expense
+    popupContainer.style.display = "flex";
+    popupMessage.innerText = "You have to sign in first !";
+
+    // Hide the message after 3 seconds
+    setTimeout(() => {
+      popupContainer.style.display = "none";
+      popupMessage.innerText = "";
+    }, 2000);
+  });

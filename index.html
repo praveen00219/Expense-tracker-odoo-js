@@ -149,7 +149,7 @@
             <div class="container mt-20">
                 <div class="homescreenShotContainer"></div>
                 <div class="flex justify-center">
-                    <div class="">
+                    <div class="Ai-screenshot">
                         <img src="/assets/img/screenShot/dashboardHomeAi.jpg" class="img-thumbnail w-[80vw]"
                             loading="eager" alt="">
                     </div>
@@ -158,7 +158,7 @@
 
             <!-- Submit on the go-->
             <div class="flex justify-between items-center mt-20 w-10/12 mx-auto">
-                <div class="w-[50vw]">
+                <div class="w-[50vw] card-img">
                     <!-- screenShot of the home page -->
                     <img src="/assets/img/screenShot/dashboardHome.jpg" class="" alt="dashboardHome">
                 </div>
@@ -224,7 +224,7 @@
                     </p>
                 </div>
                 <!-- data visulaization chart -->
-                <div class="w-2/4">
+                <div class="w-2/4 card-img">
                     <div class="flex justify-end">
                         <img src="/assets/img/bar-chart.svg" class="w-[70px] h-[70px]" alt="bar-chart">
                         <img src="/assets/img/yellow_dashboard.svg" class="w-[70px] h-[70px]" alt="yellow_dashboard">
@@ -248,22 +248,38 @@
                                 class="bottomUnleash">Unleash</span>
                             <br> your <span class="text-[#007d83]">growth potential</span>
                         </h1>
-                        <!-- <a href="#homeContainer"> -->
-                        <button id="startFree"
-                            class="transform hover:scale-105 text-white text-lg mt-10 px-6 py-3 bg-[#724b68] hover:bg-[#754368] rounded-md ">Start
-                            Now
-                            - It's
-                            free</button>
-                        <!-- </a> -->
-                        <button class="mt-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
-                                <path fill="#007d83"
-                                    d="M10.586 3L4 9.586a2 2 0 0 0-.434 2.18l.068.145A2 2 0 0 0 5.414 13H8v7a2 2 0 0 0 2 2h4l.15-.005A2 2 0 0 0 16 20l-.001-7h2.587A2 2 0 0 0 20 9.586L13.414 3a2 2 0 0 0-2.828 0" />
-                            </svg>
-                        </button>
-                        <p class="text-center text-xs font-semibold mt-3">No credit card required <br>Instant access</p>
+                        <div class="flex flex-col relative ">
+                            <img src="/assets/img/screenShot/payment.jpg" class="rotated-img  h-[50vh] opacity-50"
+                                alt="">
+                            <div id="paymentIntegration"
+                                class="tryFreer flex flex-col shadow-full items-center absolute top-1/4 -right-44 bg-gray-200 p-4 rounded-full w-[50vw] h-1/2">
+                                <a href="/assets/pages/paymentGateway/payment.html">
+                                    <button id="startFree"
+                                        class=" transform hover:scale-105  text-white text-lg mt-10 px-6 py-3 bg-[#724b68] hover:bg-[#754368] rounded-md ">Start
+                                        Now
+                                        - It's
+                                        free</button>
+                                </a>
+                                <button class="mt-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em"
+                                        viewBox="0 0 24 24">
+                                        <path fill="#007d83"
+                                            d="M10.586 3L4 9.586a2 2 0 0 0-.434 2.18l.068.145A2 2 0 0 0 5.414 13H8v7a2 2 0 0 0 2 2h4l.15-.005A2 2 0 0 0 16 20l-.001-7h2.587A2 2 0 0 0 20 9.586L13.414 3a2 2 0 0 0-2.828 0" />
+                                    </svg>
+                                </button>
+                                <p class="text-center text-xs font-semibold mt-3">No credit card required <br>Instant
+                                    access
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- popup-container message : Please Sign-in Frist -->
+            <div id="popup-container" class=" flex gap-2 fixed bottom-20 right-8 px-4 py-2 rounded-full bg-gray-200 ">
+                <img src="/assets/img/danger.png" class="w-6 h-6" alt="checkmark">
+                <span id="popupMessage" class="text-md text-black font-semibold "></span>
             </div>
 
             <div class="mt-20">
